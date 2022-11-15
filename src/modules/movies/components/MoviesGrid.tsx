@@ -2,9 +2,9 @@ import { FC, useEffect, useState } from "react";
 import { Grid, Stack, Pagination } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 import { useGetPopularMovies } from "../movies.queries";
-import { MovieCard } from "@/components/MovieCard";
+import { MovieCard } from "@/modules/movies/components/MovieCard";
 import { parseImagePath } from "@/api/api.config";
-import { MovieCardLoader } from "@/components/MovieCardLoader";
+import { MovieCardLoader } from "./MovieCardLoader";
 
 export const MoviesGrid: FC = () => {
   const [search, setSearch] = useSearchParams();
