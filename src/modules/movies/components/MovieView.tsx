@@ -101,19 +101,21 @@ export const MovieView: FC<Props> = ({ data, backToList }) => {
               </Typography>
 
               {!!data.imdb_id && (
-                <Link
-                  target="_blank"
-                  href={`https://www.imdb.com/title/${data.imdb_id}/`}
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "1ch",
-                    color: "#f3ce13",
-                  }}
-                >
-                  <Typography variant="body1">Open in</Typography>
-                  <FaImdb style={{ fontSize: "2rem" }} />
-                </Link>
+                <Box>
+                  <Link
+                    target="_blank"
+                    href={`https://www.imdb.com/title/${data.imdb_id}/`}
+                    sx={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "1ch",
+                      color: "#f3ce13",
+                    }}
+                  >
+                    <Typography variant="body1">Open in</Typography>
+                    <FaImdb style={{ fontSize: "2rem" }} />
+                  </Link>
+                </Box>
               )}
             </Stack>
           </Box>
