@@ -78,22 +78,27 @@ export const MovieView: FC<Props> = ({ data, backToList }) => {
               height: "100%",
             }}
           >
-            <Stack direction="row" alignItems="center" gap={1}>
-              <Typography variant="body2">
-                {data.vote_average.toFixed(1)}
+            <Stack gap={1}>
+              <Typography variant="caption">{data.release_date}</Typography>
+              <Stack direction="row" alignItems="center" gap={1}>
+                <Typography variant="body2">
+                  {data.vote_average.toFixed(1)}
+                </Typography>
+                <Rating
+                  name="half-rating"
+                  defaultValue={2.5}
+                  value={+data.vote_average.toFixed(1) / 2}
+                  readOnly
+                  precision={0.5}
+                />
+              </Stack>
+
+              <Typography variant="h3">{data.original_title}</Typography>
+
+              <Typography variant="body1" paragraph>
+                {data.overview}
               </Typography>
-              <Rating
-                name="half-rating"
-                defaultValue={2.5}
-                value={+data.vote_average.toFixed(1) / 2}
-                readOnly
-                precision={0.5}
-              />
             </Stack>
-            <Typography variant="h3">{data.original_title}</Typography>
-            <Typography variant="body1" paragraph>
-              {data.overview}
-            </Typography>
           </Box>
         </Grid>
       </Grid>

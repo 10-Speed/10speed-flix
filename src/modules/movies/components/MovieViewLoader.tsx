@@ -40,6 +40,7 @@ export const MovieViewLoader: FC<Props> = ({ backToList }) => {
             }}
           >
             <Stack gap={2}>
+              <Skeleton width="100px" height={15} variant="rounded" />
               <Stack direction="row" alignItems="center" gap={1}>
                 <Skeleton width="240px" height={25} variant="rounded" />
               </Stack>
