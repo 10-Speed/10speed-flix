@@ -18,6 +18,7 @@ import {
   TableBody,
   Link,
 } from "@mui/material";
+import { FaImdb } from "react-icons/fa";
 
 import { parseImagePath } from "@/api/api.config";
 import { MovieResponse } from "@/api/api.types";
@@ -98,6 +99,22 @@ export const MovieView: FC<Props> = ({ data, backToList }) => {
               <Typography variant="body1" paragraph>
                 {data.overview}
               </Typography>
+
+              {!!data.imdb_id && (
+                <Link
+                  target="_blank"
+                  href={`https://www.imdb.com/title/${data.imdb_id}/`}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1ch",
+                    color: "#f3ce13",
+                  }}
+                >
+                  <Typography variant="body1">Open in</Typography>
+                  <FaImdb style={{ fontSize: "2rem" }} />
+                </Link>
+              )}
             </Stack>
           </Box>
         </Grid>

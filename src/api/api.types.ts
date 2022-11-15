@@ -29,7 +29,7 @@ export interface MovieResponse extends MovieListItemResponse {
     name: string;
   }[];
   homepage: string;
-  imdb_id: string;
+  imdb_id: string | null;
   production_companies: {
     id: number;
     logo_path: string;
