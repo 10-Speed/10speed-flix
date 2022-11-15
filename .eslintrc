@@ -1,0 +1,3 @@
+{
+  "extends": ["@10speed/eslint-config-ten-speed-react"]
+}
