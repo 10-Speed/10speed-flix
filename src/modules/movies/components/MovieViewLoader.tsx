@@ -45,8 +45,9 @@ export const MovieViewLoader: FC<Props> = ({ backToList }) => {
                 <Skeleton width="240px" height={25} variant="rounded" />
               </Stack>
               <Skeleton width="60%" height={45} variant="rounded" />
-              <Skeleton width="100%" height={15} variant="rounded" />
-              <Skeleton width="50%" height={15} variant="rounded" />
+              <Skeleton width="100%" height={12} variant="rounded" />
+              <Skeleton width="100%" height={12} variant="rounded" />
+              <Skeleton width="50%" height={12} variant="rounded" />
             </Stack>
           </Box>
         </Grid>
