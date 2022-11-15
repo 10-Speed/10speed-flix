@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import { useGetMovie } from "@/modules/movies/movies.queries";
 import { MovieViewError } from "@/modules/movies/components/MovieViewError";
@@ -10,10 +10,11 @@ import { routes } from "./routes";
 export const MovieRoute: FC = () => {
   const { movieId } = useParams<{ movieId: string }>();
   const navigate = useNavigate();
+  const { search } = useLocation();
   const { data, isError } = useGetMovie(movieId || "");
 
   const handleBackToList = () => {
-    navigate(routes.home);
+    navigate(`${routes.home}${search}`);
   };
 
   if (isError) {

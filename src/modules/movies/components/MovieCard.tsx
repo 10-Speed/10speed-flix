@@ -7,7 +7,7 @@ import {
   CardContent,
   CardActionArea,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { routes } from "@/routes/routes";
 
 interface Props {
@@ -18,6 +18,8 @@ interface Props {
 
 export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
   const navigate = useNavigate();
+  const { search } = useLocation();
+
   return (
     <Grid item xs={6} md={3}>
       <Card
@@ -28,7 +30,9 @@ export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
           },
         }}
       >
-        <CardActionArea onClick={() => navigate(routes.movie(movieId))}>
+        <CardActionArea
+          onClick={() => navigate(routes.movie(`${movieId}${search}`))}
+        >
           <CardMedia component="img" height="380" image={image} alt={title} />
           <CardContent sx={{ height: "6rem" }}>
             <Typography variant="h6">{title}</Typography>
