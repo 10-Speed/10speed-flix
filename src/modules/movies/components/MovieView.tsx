@@ -30,7 +30,7 @@ interface Props {
 export const MovieView: FC<Props> = ({ data, backToList }) => {
   return (
     <Stack gap={5}>
-      <Button onClick={backToList}>Movie list</Button>
+      <Button onClick={backToList}>Back to movie list</Button>
       {!!data.backdrop_path && (
         <Box
           component="img"
