@@ -1,7 +1,6 @@
 {
   "name": "10speed-flix",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "Rokas Anisas <rokas@10speed.lt>",
   "license": "MIT",
   "private": "true",
