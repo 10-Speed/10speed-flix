@@ -35,8 +35,8 @@ export const MoviesGrid: FC = () => {
   return (
     <Stack spacing={5}>
       <Grid container spacing={5}>
-        {isFetching && loader}
         {movies}
+        {isFetching && loader}
       </Grid>
     </Stack>
   );
