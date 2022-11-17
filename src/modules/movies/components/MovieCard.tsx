@@ -35,7 +35,7 @@ export const MovieCard: FC<Props> = ({ title, image, titleId, titleType }) => {
           onClick={() => navigate(routes.movie(`${titleId}${search}`))}
         >
           <CardMedia component="img" height="380" image={image} alt={title} />
-          <CardContent sx={{ height: "6rem" }}>
+          <CardContent sx={{ height: "8rem" }}>
             <Typography variant="caption">
               {`(${titleType.toUpperCase()})`}
             </Typography>

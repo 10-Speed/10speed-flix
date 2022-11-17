@@ -25,13 +25,6 @@ export interface TVListItemResponse extends TMDBListItemResponse {
   first_air_date: string;
 }
 
-// export interface MovieListResponse {
-//   page: 1;
-//   results: MovieListItemResponse[];
-//   total_pages: number;
-//   total_results: number;
-// }
-
 export interface TMDBListResponse<T> {
   page: 1;
   results: T[];
