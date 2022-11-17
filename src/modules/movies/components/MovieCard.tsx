@@ -13,10 +13,11 @@ import { routes } from "@/routes/routes";
 interface Props {
   title?: string;
   image?: string;
-  movieId: string;
+  titleId: string;
+  titleType: string;
 }
 
-export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
+export const MovieCard: FC<Props> = ({ title, image, titleId, titleType }) => {
   const navigate = useNavigate();
   const { search } = useLocation();
 
@@ -31,10 +32,13 @@ export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
         }}
       >
         <CardActionArea
-          onClick={() => navigate(routes.movie(`${movieId}${search}`))}
+          onClick={() => navigate(routes.movie(`${titleId}${search}`))}
         >
           <CardMedia component="img" height="380" image={image} alt={title} />
           <CardContent sx={{ height: "6rem" }}>
+            <Typography variant="caption">
+              {`(${titleType.toUpperCase()})`}
+            </Typography>
             <Typography variant="h6">{title}</Typography>
           </CardContent>
         </CardActionArea>

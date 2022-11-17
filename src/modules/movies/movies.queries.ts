@@ -1,12 +1,23 @@
 import { apiRoutes } from "@/api/api.routes";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 
-export const useGetPopularMovies = (page: number = 1) => {
-  return useQuery({
-    queryKey: ["movies", page],
-    queryFn: () => apiRoutes.getPopularMovies(page),
-    select: (data) => data.data,
+export const useGetPopularMovies = () => {
+  return useInfiniteQuery({
+    queryKey: ["movies"],
+    queryFn: ({ pageParam = 1 }) => apiRoutes.getPopularMovies(pageParam),
+    select: (data) => data,
     staleTime: Infinity,
+    getNextPageParam: (lastPage) => lastPage.data.page + 1,
+  });
+};
+
+export const useGetPopularTVShows = (page: number = 1) => {
+  return useInfiniteQuery({
+    queryKey: ["tv"],
+    queryFn: ({ pageParam = 1 }) => apiRoutes.getPopularTVShows(pageParam),
+    select: (data) => data,
+    staleTime: Infinity,
+    getNextPageParam: (lastPage) => lastPage.data.page + 1,
   });
 };
 

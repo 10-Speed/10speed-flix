@@ -1,9 +1,20 @@
 import { API } from "./api.config";
-import { MovieListResponse, MovieResponse } from "./api.types";
+import {
+  MovieListItemResponse,
+  MovieResponse,
+  TMDBListResponse,
+  TVListItemResponse,
+} from "./api.types";
 
 export const apiRoutes = {
   getPopularMovies: (page: number = 1) =>
-    API.get<MovieListResponse>("/movie/popular", {
+    API.get<TMDBListResponse<MovieListItemResponse>>("/movie/popular", {
+      params: {
+        page,
+      },
+    }),
+  getPopularTVShows: (page: number = 1) =>
+    API.get<TMDBListResponse<TVListItemResponse>>("/tv/popular", {
       params: {
         page,
       },
