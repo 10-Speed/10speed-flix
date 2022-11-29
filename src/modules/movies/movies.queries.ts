@@ -19,3 +19,12 @@ export const useGetMovie = (movieId: string) => {
     cacheTime: Infinity,
   });
 };
+
+export const useGetPopularShows = (page: number = 1) => {
+  return useQuery({
+    queryKey: ["shows", page],
+    queryFn: () => apiRoutes.getPopularShows(page),
+    select: (data) => data.data,
+    staleTime: Infinity,
+  });
+};

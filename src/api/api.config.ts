@@ -7,5 +7,7 @@ export const API = axios.create({
   },
 });
 
-export const parseImagePath = (path: string | null) =>
-  `https://image.tmdb.org/t/p/original/${path}`;
+export const parseImagePath = (path: string | null | undefined) => {
+  if (path) return `https://image.tmdb.org/t/p/original/${path}`;
+  return "";
+};
