@@ -1,16 +1,19 @@
-import { FC, useEffect, useState } from "react";
-import { Grid, Stack, Pagination } from "@mui/material";
+import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Grid, Stack } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 import { useGetPopularMovies, useGetPopularTvShows } from "../movies.queries";
 import { MovieCard } from "@/modules/movies/components/MovieCard";
 import { parseImagePath } from "@/api/api.config";
 import { MovieCardLoader } from "./MovieCardLoader";
+import { MovieListItemResponse, TvShowListItemResponse } from "@/api/api.types";
 
 export const MoviesGrid: FC = () => {
-  const [search, setSearch] = useSearchParams();
+  const observerRef = useRef<HTMLDivElement>(null);
+  const [search] = useSearchParams();
   const [page, setPage] = useState(
     !!search.get("page") ? +`${search.get("page")}` : 1
   );
+  const [list, setList] = useState<(MovieListItemResponse | TvShowListItemResponse)[]>([]);
 
   const { data: moviesData, isFetching: isFetchingMovies } = useGetPopularMovies(page);
   const { data: tvShowsData, isFetching: isFetchingTvShows } = useGetPopularTvShows(page);
@@ -19,14 +22,15 @@ export const MoviesGrid: FC = () => {
     .fill(null)
     .map((_, index) => <MovieCardLoader key={index} />);
 
-  const combinedList = [
+  const combinedList = useMemo(() => [
     ...(moviesData ? moviesData.results : []),
     ...(tvShowsData ? tvShowsData.results : []),
-  ];
+  ], [moviesData, tvShowsData]);
 
-  const sortedList = combinedList.sort((a,b) => (a.popularity < b.popularity) ? 1 : ((b.popularity < a.popularity) ? -1 : 0));
+  const sortedList = useMemo(() =>
+    combinedList.sort((a,b) => (a.popularity < b.popularity) ? 1 : ((b.popularity < a.popularity) ? -1 : 0)), [combinedList]);
 
-  const cardCollection = sortedList?.map((item) => {
+  const cardCollection = list?.map((item) => {
     const { id, original_title, original_name, poster_path } = item;
     const itemType = original_title ? "Movie" : "TV Show"
     return (
@@ -41,21 +45,38 @@ export const MoviesGrid: FC = () => {
   });
 
   useEffect(() => {
-    setSearch({ page: `${page}` });
-  }, [page, setSearch]);
+    if (sortedList.length < 40) return; // a hack to wait for both queries to finish
+    setList(prevList => [...prevList, ...sortedList]);
+  }, [sortedList]);
+
+  const handleObserver = useCallback((entries: any[]) => {
+    const [target] = entries;
+    if (target.isIntersecting) {
+      setPage(prevPage => prevPage + 1);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (list.length === 0) return;
+    const element = observerRef.current
+    if (!element) return;
+    const option = { threshold: 0 }
+
+    const observer = new IntersectionObserver(handleObserver, option);
+    observer.observe(element)
+    return () => observer.unobserve(element)
+  }, [handleObserver, list]);
 
   return (
     <Stack spacing={5}>
       <Grid container spacing={5}>
-        {isFetchingMovies || isFetchingTvShows ? loader : cardCollection}
+        {isFetchingMovies || isFetchingTvShows ? loader :
+        <>
+          {cardCollection}
+        </>
+        }
       </Grid>
-      <Grid container justifyContent="center">
-        <Pagination
-          onChange={(_, num) => setPage(num)}
-          count={500}
-          page={page}
-        />
-      </Grid>
+      <div id="pageBottom" ref={observerRef} />
     </Stack>
   );
 };
