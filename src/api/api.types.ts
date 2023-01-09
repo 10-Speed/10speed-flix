@@ -16,7 +16,7 @@ export interface MovieListItemResponse {
 }
 
 export interface MovieListResponse {
-  page: 1;
+  page: number;
   results: MovieListItemResponse[];
   total_pages: number;
   total_results: number;
