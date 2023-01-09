@@ -14,9 +14,10 @@ interface Props {
   title?: string;
   image?: string;
   movieId: string;
+  itemType?: string;
 }
 
-export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
+export const MovieCard: FC<Props> = ({ title, image, movieId, itemType }) => {
   const navigate = useNavigate();
   const { search } = useLocation();
 
@@ -28,6 +29,7 @@ export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
           ":hover": {
             transform: "translateY(-5px)",
           },
+          position: "relative",
         }}
       >
         <CardActionArea
@@ -36,6 +38,18 @@ export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
           <CardMedia component="img" height="380" image={image} alt={title} />
           <CardContent sx={{ height: "6rem" }}>
             <Typography variant="h6">{title}</Typography>
+            <div style={{
+              position: 'absolute',
+              top: '20px',
+              left: '20px',
+              color: 'black',
+              padding: '10px',
+              borderRadius: '5px',
+              backgroundColor: 'white'
+            }}>
+                {itemType}
+            </div>
+            <Typography variant="subtitle1"></Typography>
           </CardContent>
         </CardActionArea>
       </Card>
