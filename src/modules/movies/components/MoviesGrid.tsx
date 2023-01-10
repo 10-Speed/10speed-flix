@@ -18,10 +18,6 @@ export const MoviesGrid: FC = () => {
   const { data: moviesData, isFetching: isFetchingMovies } = useGetPopularMovies(page);
   const { data: tvShowsData, isFetching: isFetchingTvShows } = useGetPopularTvShows(page);
 
-  const loader = Array(12)
-    .fill(null)
-    .map((_, index) => <MovieCardLoader key={index} />);
-
   const combinedList = useMemo(() => [
     ...(moviesData ? moviesData.results : []),
     ...(tvShowsData ? tvShowsData.results : []),
@@ -32,7 +28,7 @@ export const MoviesGrid: FC = () => {
 
   const cardCollection = list?.map((item) => {
     const { id, original_title, original_name, poster_path } = item;
-    const itemType = original_title ? "Movie" : "TV Show"
+    const itemType = original_title ? "Movie" : "TV Show";
     return (
       <MovieCard
         key={id}
@@ -44,8 +40,12 @@ export const MoviesGrid: FC = () => {
     );
   });
 
+  const loader = Array(12)
+    .fill(null)
+    .map((_, index) => <MovieCardLoader key={index} />);
+
   useEffect(() => {
-    if (sortedList.length < 40) return; // a hack to wait for both queries to finish
+    if (sortedList.length < 40) return; // a hack to wait for both queries of 20 items to finish
     setList(prevList => [...prevList, ...sortedList]);
   }, [sortedList]);
 
