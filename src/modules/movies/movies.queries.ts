@@ -10,6 +10,15 @@ export const useGetPopularMovies = (page: number = 1) => {
   });
 };
 
+export const useGetPopularTvShows = (page: number = 1) => {
+  return useQuery({
+    queryKey: ["tv", page],
+    queryFn: () => apiRoutes.getPopularTvShows(page),
+    select: (data) => data.data,
+    staleTime: Infinity,
+  });
+};
+
 export const useGetMovie = (movieId: string) => {
   return useQuery({
     queryKey: ["movie", movieId],
