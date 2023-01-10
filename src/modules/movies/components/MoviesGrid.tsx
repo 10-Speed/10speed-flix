@@ -65,7 +65,7 @@ export const MoviesGrid: FC = () => {
     const observer = new IntersectionObserver(handleObserver, option);
     observer.observe(element)
     return () => observer.unobserve(element)
-  }, [handleObserver, observerRef]);
+  }, [handleObserver, list, observerRef]);
 
   return (
     <Stack spacing={5}>
