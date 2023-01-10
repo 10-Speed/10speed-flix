@@ -70,11 +70,7 @@ export const MoviesGrid: FC = () => {
   return (
     <Stack spacing={5}>
       <Grid container spacing={5}>
-        {isFetchingMovies || isFetchingTvShows ? loader :
-        <>
-          {cardCollection}
-        </>
-        }
+        {isFetchingMovies || isFetchingTvShows ? loader : cardCollection}
       </Grid>
       <div ref={observerRef} />
     </Stack>
