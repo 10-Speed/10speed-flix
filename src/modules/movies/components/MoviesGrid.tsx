@@ -45,9 +45,9 @@ export const MoviesGrid: FC = () => {
     .map((_, index) => <MovieCardLoader key={index} />);
 
   useEffect(() => {
-    if (sortedList.length < 40) return; // a hack to wait for both queries of 20 items to finish
+    if (isFetchingMovies || isFetchingTvShows) return;
     setList(prevList => [...prevList, ...sortedList]);
-  }, [sortedList]);
+  }, [sortedList, isFetchingMovies, isFetchingTvShows]);
 
   const handleObserver = useCallback((entries: any[]) => {
     const [target] = entries;
