@@ -65,7 +65,7 @@ export const MoviesGrid: FC = () => {
     const observer = new IntersectionObserver(handleObserver, option);
     observer.observe(element)
     return () => observer.unobserve(element)
-  }, [handleObserver, list]);
+  }, [handleObserver, observerRef]);
 
   return (
     <Stack spacing={5}>
@@ -76,7 +76,7 @@ export const MoviesGrid: FC = () => {
         </>
         }
       </Grid>
-      <div id="pageBottom" ref={observerRef} />
+      <div ref={observerRef} />
     </Stack>
   );
 };
