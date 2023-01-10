@@ -38,7 +38,7 @@ export const MovieCard: FC<Props> = ({ title, image, movieId, itemType }) => {
           <CardMedia component="img" height="380" image={image} alt={title} />
           <CardContent sx={{ height: "6rem" }}>
             <Typography variant="h6">{title}</Typography>
-            <div style={{
+            {itemType && <div style={{
               position: 'absolute',
               top: '20px',
               left: '20px',
@@ -48,7 +48,7 @@ export const MovieCard: FC<Props> = ({ title, image, movieId, itemType }) => {
               backgroundColor: 'white'
             }}>
                 {itemType}
-            </div>
+            </div>}
             <Typography variant="subtitle1"></Typography>
           </CardContent>
         </CardActionArea>
