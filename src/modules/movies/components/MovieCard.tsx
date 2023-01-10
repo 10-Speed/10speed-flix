@@ -45,7 +45,7 @@ export const MovieCard: FC<Props> = ({ title, image, movieId, itemType }) => {
               color: 'black',
               padding: '10px',
               borderRadius: '5px',
-              backgroundColor: 'white'
+              backgroundColor: 'white',
             }}>
                 {itemType}
             </Typography>}
