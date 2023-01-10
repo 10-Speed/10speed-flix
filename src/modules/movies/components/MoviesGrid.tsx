@@ -58,13 +58,13 @@ export const MoviesGrid: FC = () => {
 
   useEffect(() => {
     if (list.length === 0) return;
-    const element = observerRef.current
+    const element = observerRef.current;
     if (!element) return;
-    const option = { threshold: 0 }
+    const option = { threshold: 0 };
 
     const observer = new IntersectionObserver(handleObserver, option);
-    observer.observe(element)
-    return () => observer.unobserve(element)
+    observer.observe(element);
+    return () => observer.unobserve(element);
   }, [handleObserver, list, observerRef]);
 
   return (
