@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { Grid, Stack, Pagination } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
-import { useGetPopularMovies } from "../movies.queries";
+import { useGetPopularMovies, useGetPopularTvShows } from "../movies.queries";
 import { MovieCard } from "@/modules/movies/components/MovieCard";
 import { parseImagePath } from "@/api/api.config";
 import { MovieCardLoader } from "./MovieCardLoader";
@@ -11,19 +11,27 @@ export const MoviesGrid: FC = () => {
   const [page, setPage] = useState(
     !!search.get("page") ? +`${search.get("page")}` : 1
   );
-  const { data, isFetching } = useGetPopularMovies(page);
+
+  const tvShowsRes = useGetPopularTvShows(page)
+  const moviesRes = useGetPopularMovies(page)
+
+  const showsAndMoviesArr = tvShowsRes.data !== undefined && moviesRes.data !== undefined ? [...tvShowsRes.data?.results, ...moviesRes.data?.results] : [];
+
+  const sortByPopularityArr = showsAndMoviesArr.sort((a, b) => a.popularity < b.popularity ? 1 : -1)
 
   const loader = Array(12)
     .fill(null)
     .map((_, index) => <MovieCardLoader key={index} />);
 
-  const movies = data?.results?.map((item) => {
+  const movies = sortByPopularityArr.map((item) => {
+   const tvType = item.original_title ? "Movie" : "Tv show";
     return (
       <MovieCard
         key={item.id}
         movieId={`${item.id}`}
-        title={item.original_title}
+        title={item.original_title || item.original_name}
         image={parseImagePath(item.poster_path)}
+        tvType={tvType}
       />
     );
   });
@@ -35,7 +43,7 @@ export const MoviesGrid: FC = () => {
   return (
     <Stack spacing={5}>
       <Grid container spacing={5}>
-        {isFetching ? loader : movies}
+        {tvShowsRes.isFetching || moviesRes.isFetching ? loader : movies}
       </Grid>
       <Grid container justifyContent="center">
         <Pagination

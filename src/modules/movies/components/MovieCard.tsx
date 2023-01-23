@@ -14,9 +14,10 @@ interface Props {
   title?: string;
   image?: string;
   movieId: string;
+  tvType: string;
 }
 
-export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
+export const MovieCard: FC<Props> = ({ title, image, movieId, tvType }) => {
   const navigate = useNavigate();
   const { search } = useLocation();
 
@@ -33,6 +34,7 @@ export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
         <CardActionArea
           onClick={() => navigate(routes.movie(`${movieId}${search}`))}
         >
+          <div style={{position: 'absolute', right: '0px', padding: '5px', margin: '10px', borderRadius: '10px', backgroundColor: 'blueviolet'}}>{tvType}</div>
           <CardMedia component="img" height="380" image={image} alt={title} />
           <CardContent sx={{ height: "6rem" }}>
             <Typography variant="h6">{title}</Typography>

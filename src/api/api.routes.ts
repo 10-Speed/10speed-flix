@@ -1,11 +1,18 @@
 import { API } from "./api.config";
-import { MovieListResponse, MovieResponse } from "./api.types";
+import { MovieListResponse, TvSeriesListResponse, MovieResponse } from "./api.types";
 
 export const apiRoutes = {
   /**
    * More details about this endpoint can be found here:
    * @see https://developers.themoviedb.org/3/movies/get-popular-movies
    */
+  getPopularTvShows: (page: number = 1) =>
+    API.get<TvSeriesListResponse>("/tv/popular", {
+      params: {
+        page,
+      },
+    }),
+
   getPopularMovies: (page: number = 1) =>
     API.get<MovieListResponse>("/movie/popular", {
       params: {
