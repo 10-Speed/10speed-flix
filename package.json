@@ -4,6 +4,10 @@
   "author": "Rokas Anisas <rokas@10speed.lt>",
   "license": "MIT",
   "private": "true",
+  "engines": {
+    "node": ">=16.0.0",
+    "yarn": ">=1.22.0 < 2.0.0"
+  },
   "scripts": {
     "start": "vite --host",
     "build": "tsc && vite build",
