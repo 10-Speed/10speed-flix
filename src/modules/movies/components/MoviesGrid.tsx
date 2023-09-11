@@ -13,7 +13,7 @@ export const MoviesGrid: FC = () => {
   );
   const { data, isFetching } = useGetPopularMovies(page);
 
-  const loader = Array(12)
+  const loader = Array(20)
     .fill(null)
     .map((_, index) => <MovieCardLoader key={index} />);
 
