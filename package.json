@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "author": "Rokas Anisas <rokas@10speed.lt>",
   "license": "MIT",
-  "private": "true",
   "engines": {
     "node": ">=16.0.0",
     "yarn": ">=1.22.0 < 2.0.0"
@@ -14,7 +13,8 @@
     "preview": "vite preview",
     "lint:code": "eslint \"src/**/*.{js,jsx,json,ts,tsx}\"",
     "lint:ts": "yarn tsc --noEmit --skipLibCheck",
-    "lint": "yarn lint:code && yarn lint:ts"
+    "lint": "yarn lint:code && yarn lint:ts",
+    "update": "yarn upgrade-interactive"
   },
   "devDependencies": {
     "@10speed/eslint-config-ten-speed-react": "^1.3.8",
@@ -38,5 +38,6 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.15.0"
-  }
+  },
+  "packageManager": "yarn@4.5.0"
 }
