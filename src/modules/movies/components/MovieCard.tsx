@@ -2,6 +2,7 @@ import { FC } from "react";
 import {
   Grid,
   Card,
+  Tooltip,
   Typography,
   CardMedia,
   CardContent,
@@ -34,8 +35,12 @@ export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
           onClick={() => navigate(routes.movie(`${movieId}${search}`))}
         >
           <CardMedia component="img" height="380" image={image} alt={title} />
-          <CardContent sx={{ height: "6rem" }}>
-            <Typography variant="h6">{title}</Typography>
+          <CardContent sx={{ height: "4rem" }}>
+            <Tooltip title={title}>
+              <Typography noWrap variant="h6">
+                {title}
+              </Typography>
+            </Tooltip>
           </CardContent>
         </CardActionArea>
       </Card>
