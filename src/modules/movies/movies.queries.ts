@@ -13,5 +13,4 @@ export const useGetMovie = (movieId: string) => useQuery({
     queryFn: () => apiRoutes.getMovie(movieId),
     select: (data) => data.data,
     staleTime: Infinity,
-    cacheTime: Infinity,
   });
