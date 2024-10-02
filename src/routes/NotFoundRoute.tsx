@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { Button, Stack, Typography } from "@mui/material";
+import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { routes } from "./routes";
 
@@ -16,7 +16,7 @@ export const NotFoundRoute: FC = () => {
         position: "absolute",
         top: "50%",
         left: "50%",
-        transform: "translate(-50%, -50%)",
+        transform: "translate(-50%, -50%)"
       }}
     >
       <Button onClick={() => navigate(routes.home)}>To movie list</Button>

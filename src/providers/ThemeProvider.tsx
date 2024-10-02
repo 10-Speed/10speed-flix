@@ -1,9 +1,9 @@
-import { FC, ReactNode } from "react";
 import {
-  ThemeProvider as MuiThemeProvider,
   createTheme,
   CssBaseline,
+  ThemeProvider as MuiThemeProvider
 } from "@mui/material";
+import { FC, ReactNode } from "react";
 
 interface Props {
   children?: ReactNode;
@@ -12,8 +12,8 @@ interface Props {
 export const ThemeProvider: FC<Props> = ({ children }) => {
   const theme = createTheme({
     palette: {
-      mode: "dark",
-    },
+      mode: "dark"
+    }
   });
 
   return (

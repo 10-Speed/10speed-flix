@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-import { useGetMovie } from "@/modules/movies/movies.queries";
+import { MovieView } from "@/modules/movies/components/MovieView";
 import { MovieViewError } from "@/modules/movies/components/MovieViewError";
 import { MovieViewLoader } from "@/modules/movies/components/MovieViewLoader";
-import { MovieView } from "@/modules/movies/components/MovieView";
+import { useGetMovie } from "@/modules/movies/movies.queries";
 import { routes } from "./routes";
 
 export const MovieRoute: FC = () => {

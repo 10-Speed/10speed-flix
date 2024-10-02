@@ -8,3 +8,11 @@ yarn-error.log
 # misc
 .DS_Store
 .env
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

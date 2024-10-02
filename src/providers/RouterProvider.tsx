@@ -5,10 +5,8 @@ interface Props {
   children?: ReactNode;
 }
 
-export const RouterProvider: FC<Props> = ({ children }) => {
-  return (
-    <BrowserRouter>
-      <Routes>{children}</Routes>
-    </BrowserRouter>
-  );
-};
+export const RouterProvider: FC<Props> = ({ children }) => (
+  <BrowserRouter>
+    <Routes>{children}</Routes>
+  </BrowserRouter>
+);
