@@ -4,7 +4,7 @@ import {
   Stack,
   Button,
   Box,
-  Grid,
+  Grid2,
   Typography,
   Rating,
   Accordion,
@@ -50,8 +50,8 @@ export const MovieView: FC<Props> = ({ data, backToList }) => (
       />
     )}
 
-    <Grid container spacing={5}>
-      <Grid item xs={12} md={3}>
+    <Grid2 container spacing={5}>
+      <Grid2 size={{ xs: 12, md: 3 }}>
         <Box display="flex" alignItems="center" justifyContent="center">
           <Box
             component="img"
@@ -68,8 +68,8 @@ export const MovieView: FC<Props> = ({ data, backToList }) => (
             alt={data?.original_title}
           />
         </Box>
-      </Grid>
-      <Grid item xs={12} md={9}>
+      </Grid2>
+      <Grid2 size={{ xs: 12, md: 9 }}>
         <Box
           display="flex"
           justifyContent="center"
@@ -118,8 +118,8 @@ export const MovieView: FC<Props> = ({ data, backToList }) => (
             )}
           </Stack>
         </Box>
-      </Grid>
-    </Grid>
+      </Grid2>
+    </Grid2>
 
     <Stack>
       {!!data.homepage && (
@@ -150,8 +150,8 @@ export const MovieView: FC<Props> = ({ data, backToList }) => (
         <AccordionDetails>
           <Stack direction="row" gap={1}>
             {data.genres.map((genre) => (
-                <Chip variant="outlined" key={genre.id} label={genre.name} />
-              ))}
+              <Chip variant="outlined" key={genre.id} label={genre.name} />
+            ))}
           </Stack>
         </AccordionDetails>
       </Accordion>

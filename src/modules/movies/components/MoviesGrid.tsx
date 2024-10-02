@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { Grid, Stack, Pagination } from "@mui/material";
+import { Grid2, Stack, Pagination } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 import { useGetPopularMovies } from "../movies.queries";
 import { MovieCard } from "@/modules/movies/components/MovieCard";
@@ -18,13 +18,13 @@ export const MoviesGrid: FC = () => {
     .map((_, index) => <MovieCardLoader key={index} />);
 
   const movies = data?.results?.map((item) => (
-      <MovieCard
-        key={item.id}
-        movieId={`${item.id}`}
-        title={item.original_title}
-        image={parseImagePath(item.poster_path)}
-      />
-    ));
+    <MovieCard
+      key={item.id}
+      movieId={`${item.id}`}
+      title={item.original_title}
+      image={parseImagePath(item.poster_path)}
+    />
+  ));
 
   useEffect(() => {
     setSearch({ page: `${page}` });
@@ -32,16 +32,16 @@ export const MoviesGrid: FC = () => {
 
   return (
     <Stack spacing={5}>
-      <Grid container spacing={5}>
+      <Grid2 container columns={{ xs: 12 }} spacing={5}>
         {isFetching ? loader : movies}
-      </Grid>
-      <Grid container justifyContent="center">
+      </Grid2>
+      <Stack alignItems="center" justifyContent="center">
         <Pagination
           onChange={(_, num) => setPage(num)}
           count={500}
           page={page}
         />
-      </Grid>
+      </Stack>
     </Stack>
   );
 };
