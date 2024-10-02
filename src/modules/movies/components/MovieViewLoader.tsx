@@ -5,8 +5,7 @@ interface Props {
   backToList?(): void;
 }
 
-export const MovieViewLoader: FC<Props> = ({ backToList }) => {
-  return (
+export const MovieViewLoader: FC<Props> = ({ backToList }) => (
     <Stack gap={5}>
       <Button onClick={backToList}>Back to movie list</Button>
 
@@ -60,4 +59,3 @@ export const MovieViewLoader: FC<Props> = ({ backToList }) => {
       </Stack>
     </Stack>
   );
-};

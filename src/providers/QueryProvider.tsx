@@ -7,11 +7,9 @@ interface Props {
 }
 const queryClient = new QueryClient();
 
-export const QueryProvider: FC<Props> = ({ children }) => {
-  return (
+export const QueryProvider: FC<Props> = ({ children }) => (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools />
       {children}
     </QueryClientProvider>
   );
-};

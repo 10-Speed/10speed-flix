@@ -10,8 +10,7 @@ import { NotFoundRoute } from "@/routes/NotFoundRoute";
 import { QueryProvider } from "./providers/QueryProvider";
 import { MovieRoute } from "./routes/MovieRoute";
 
-const App: FC = () => {
-  return (
+const App: FC = () => (
     <QueryProvider>
       <ThemeProvider>
         <RouterProvider>
@@ -24,6 +23,5 @@ const App: FC = () => {
       </ThemeProvider>
     </QueryProvider>
   );
-};
 
 export default App;

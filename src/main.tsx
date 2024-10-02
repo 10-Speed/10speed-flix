@@ -5,7 +5,9 @@ import App from "./App";
 const main = () => {
   const root = document.getElementById("root");
 
-  if (!root) return;
+  if (!root) {
+    return;
+  }
 
   ReactDOM.createRoot(root).render(
     <React.StrictMode>

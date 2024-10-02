@@ -5,8 +5,7 @@ interface Props {
   backToList?(): void;
 }
 
-export const MovieViewError: FC<Props> = ({ backToList }) => {
-  return (
+export const MovieViewError: FC<Props> = ({ backToList }) => (
     <Stack
       alignItems="center"
       justifyContent="center"
@@ -25,4 +24,3 @@ export const MovieViewError: FC<Props> = ({ backToList }) => {
       </Typography>
     </Stack>
   );
-};

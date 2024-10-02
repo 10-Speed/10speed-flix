@@ -9,7 +9,7 @@ import { MovieCardLoader } from "./MovieCardLoader";
 export const MoviesGrid: FC = () => {
   const [search, setSearch] = useSearchParams();
   const [page, setPage] = useState(
-    !!search.get("page") ? +`${search.get("page")}` : 1
+    search.get("page") ? +`${search.get("page")}` : 1
   );
   const { data, isFetching } = useGetPopularMovies(page);
 
@@ -17,16 +17,14 @@ export const MoviesGrid: FC = () => {
     .fill(null)
     .map((_, index) => <MovieCardLoader key={index} />);
 
-  const movies = data?.results?.map((item) => {
-    return (
+  const movies = data?.results?.map((item) => (
       <MovieCard
         key={item.id}
         movieId={`${item.id}`}
         title={item.original_title}
         image={parseImagePath(item.poster_path)}
       />
-    );
-  });
+    ));
 
   useEffect(() => {
     setSearch({ page: `${page}` });
