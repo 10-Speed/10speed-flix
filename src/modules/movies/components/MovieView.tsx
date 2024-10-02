@@ -1,23 +1,23 @@
-import { FC } from "react";
 import { ExpandMore } from "@mui/icons-material";
 import {
-  Stack,
-  Button,
-  Box,
-  Grid2,
-  Typography,
-  Rating,
   Accordion,
-  AccordionSummary,
   AccordionDetails,
+  AccordionSummary,
+  Box,
+  Button,
   Chip,
+  Grid2,
+  Link,
+  Rating,
+  Stack,
   Table,
+  TableBody,
+  TableCell,
   TableHead,
   TableRow,
-  TableCell,
-  TableBody,
-  Link,
+  Typography
 } from "@mui/material";
+import { FC } from "react";
 import { FaImdb } from "react-icons/fa";
 
 import { parseImagePath } from "@/api/api.config";
@@ -45,7 +45,7 @@ export const MovieView: FC<Props> = ({ data, backToList }) => (
           top: 0,
           left: 0,
           zIndex: -1,
-          filter: "brightness(35%)",
+          filter: "brightness(35%)"
         }}
       />
     )}
@@ -61,8 +61,8 @@ export const MovieView: FC<Props> = ({ data, backToList }) => (
               borderRadius: "10px",
               maxWidth: {
                 xs: "60%",
-                md: "100%",
-              },
+                md: "100%"
+              }
             }}
             src={parseImagePath(data.poster_path)}
             alt={data?.original_title}
@@ -75,7 +75,7 @@ export const MovieView: FC<Props> = ({ data, backToList }) => (
           justifyContent="center"
           sx={{
             flexDirection: "column",
-            height: "100%",
+            height: "100%"
           }}
         >
           <Stack gap={1}>
@@ -108,7 +108,7 @@ export const MovieView: FC<Props> = ({ data, backToList }) => (
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "1ch",
-                    color: "#f3ce13",
+                    color: "#f3ce13"
                   }}
                 >
                   <Typography variant="body1">Open in</Typography>

@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { Route } from "react-router-dom";
 
-import { HomeRoute } from "@/routes/HomeRoute";
-import { ThemeProvider } from "@/providers/ThemeProvider";
-import { RouterProvider } from "@/providers/RouterProvider";
 import { MainLayout } from "@/components/MainLayout";
-import { routes } from "@/routes/routes";
+import { RouterProvider } from "@/providers/RouterProvider";
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import { HomeRoute } from "@/routes/HomeRoute";
 import { NotFoundRoute } from "@/routes/NotFoundRoute";
+import { routes } from "@/routes/routes";
 import { QueryProvider } from "./providers/QueryProvider";
 import { MovieRoute } from "./routes/MovieRoute";
 

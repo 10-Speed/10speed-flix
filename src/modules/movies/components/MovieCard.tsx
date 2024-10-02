@@ -1,15 +1,15 @@
-import { FC } from "react";
-import {
-  Grid2,
-  Card,
-  Tooltip,
-  Typography,
-  CardMedia,
-  CardContent,
-  CardActionArea,
-} from "@mui/material";
-import { useLocation, useNavigate } from "react-router-dom";
 import { routes } from "@/routes/routes";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Grid2,
+  Tooltip,
+  Typography
+} from "@mui/material";
+import { FC } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface Props {
   title?: string;
@@ -27,8 +27,8 @@ export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
         sx={{
           transition: "transform 0.4s ease",
           ":hover": {
-            transform: "translateY(-5px)",
-          },
+            transform: "translateY(-5px)"
+          }
         }}
       >
         <CardActionArea

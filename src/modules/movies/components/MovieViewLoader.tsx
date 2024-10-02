@@ -1,5 +1,5 @@
+import { Box, Button, Grid2, Skeleton, Stack } from "@mui/material";
 import { FC } from "react";
-import { Stack, Button, Grid2, Skeleton, Box } from "@mui/material";
 
 interface Props {
   backToList?(): void;
@@ -15,16 +15,16 @@ export const MovieViewLoader: FC<Props> = ({ backToList }) => (
           sx={{
             width: {
               xs: "50%",
-              md: "100%",
+              md: "100%"
             },
             margin: {
               xs: "0 auto",
-              md: 0,
+              md: 0
             },
             height: {
               xs: "300px",
-              md: "387px",
-            },
+              md: "387px"
+            }
           }}
           variant="rounded"
         />
@@ -35,7 +35,7 @@ export const MovieViewLoader: FC<Props> = ({ backToList }) => (
           justifyContent="center"
           sx={{
             flexDirection: "column",
-            height: "100%",
+            height: "100%"
           }}
         >
           <Stack gap={2}>

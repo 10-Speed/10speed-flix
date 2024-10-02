@@ -1,15 +1,15 @@
+import { parseImagePath } from "@/api/api.config";
+import { MovieCard } from "@/modules/movies/components/MovieCard";
+import { Grid2, Pagination, Stack } from "@mui/material";
 import { FC, useEffect, useState } from "react";
-import { Grid2, Stack, Pagination } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 import { useGetPopularMovies } from "../movies.queries";
-import { MovieCard } from "@/modules/movies/components/MovieCard";
-import { parseImagePath } from "@/api/api.config";
 import { MovieCardLoader } from "./MovieCardLoader";
 
 export const MoviesGrid: FC = () => {
   const [search, setSearch] = useSearchParams();
   const [page, setPage] = useState(
-    search.get("page") ? +`${search.get("page")}` : 1,
+    search.get("page") ? +`${search.get("page")}` : 1
   );
   const { data, isFetching } = useGetPopularMovies(page);
 

@@ -1,5 +1,5 @@
+import { Grid2, Skeleton, Stack } from "@mui/material";
 import { FC } from "react";
-import { Grid2, Stack, Skeleton } from "@mui/material";
 
 export const MovieCardLoader: FC = () => (
   <Grid2 size={{ xs: 6, md: 3 }}>

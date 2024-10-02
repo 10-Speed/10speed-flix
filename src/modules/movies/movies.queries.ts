@@ -6,7 +6,7 @@ export const useGetPopularMovies = (page: number = 1) =>
     queryKey: ["movies", page],
     queryFn: () => apiRoutes.getPopularMovies(page),
     select: (data) => data.data,
-    staleTime: Infinity,
+    staleTime: Infinity
   });
 
 export const useGetMovie = (movieId: string) =>
@@ -14,5 +14,5 @@ export const useGetMovie = (movieId: string) =>
     queryKey: ["movie", movieId],
     queryFn: () => apiRoutes.getMovie(movieId),
     select: (data) => data.data,
-    staleTime: Infinity,
+    staleTime: Infinity
   });
