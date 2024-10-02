@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "author": "Rokas Anisas <rokas@10speed.lt>",
   "license": "MIT",
+  "engineStrict": true,
   "engines": {
-    "node": ">=16.0.0",
-    "yarn": ">=1.22.0 < 2.0.0"
+    "node": ">=20.0.0",
+    "yarn": ">=4 < 5"
   },
   "scripts": {
     "start": "vite --host",
