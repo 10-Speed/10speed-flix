@@ -11,17 +11,17 @@ import { QueryProvider } from "./providers/QueryProvider";
 import { MovieRoute } from "./routes/MovieRoute";
 
 const App: FC = () => (
-    <QueryProvider>
-      <ThemeProvider>
-        <RouterProvider>
-          <Route element={<MainLayout />}>
-            <Route path={routes.home} element={<HomeRoute />} />
-            <Route path={routes.movie()} element={<MovieRoute />} />
-            <Route path={routes.notFound} element={<NotFoundRoute />} />
-          </Route>
-        </RouterProvider>
-      </ThemeProvider>
-    </QueryProvider>
-  );
+  <QueryProvider>
+    <ThemeProvider>
+      <RouterProvider>
+        <Route element={<MainLayout />}>
+          <Route path={routes.home} element={<HomeRoute />} />
+          <Route path={routes.movie()} element={<MovieRoute />} />
+          <Route path={routes.notFound} element={<NotFoundRoute />} />
+        </Route>
+      </RouterProvider>
+    </ThemeProvider>
+  </QueryProvider>
+);
 
 export default App;

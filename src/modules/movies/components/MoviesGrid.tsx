@@ -9,7 +9,7 @@ import { MovieCardLoader } from "./MovieCardLoader";
 export const MoviesGrid: FC = () => {
   const [search, setSearch] = useSearchParams();
   const [page, setPage] = useState(
-    search.get("page") ? +`${search.get("page")}` : 1
+    search.get("page") ? +`${search.get("page")}` : 1,
   );
   const { data, isFetching } = useGetPopularMovies(page);
 

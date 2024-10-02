@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const RouterProvider: FC<Props> = ({ children }) => (
-    <BrowserRouter>
-      <Routes>{children}</Routes>
-    </BrowserRouter>
-  );
+  <BrowserRouter>
+    <Routes>{children}</Routes>
+  </BrowserRouter>
+);
