@@ -10,4 +10,4 @@
 ## References
 
 - The movie database developer reference: https://developers.themoviedb.org/3
-- React query developer reference: https://tanstack.com/query/v4/docs/overview
+- React query developer reference: https://tanstack.com/query/v5/docs/framework/react/overview
