@@ -6,7 +6,7 @@ import {
   Box,
   Button,
   Chip,
-  Grid2,
+  Grid,
   Link,
   Rating,
   Stack,
@@ -50,8 +50,8 @@ export const MovieView: FC<Props> = ({ data, backToList }) => (
       />
     )}
 
-    <Grid2 container spacing={5}>
-      <Grid2 size={{ xs: 12, md: 3 }}>
+    <Grid container spacing={5}>
+      <Grid size={{ xs: 12, md: 3 }}>
         <Box display="flex" alignItems="center" justifyContent="center">
           <Box
             component="img"
@@ -68,8 +68,8 @@ export const MovieView: FC<Props> = ({ data, backToList }) => (
             alt={data?.original_title}
           />
         </Box>
-      </Grid2>
-      <Grid2 size={{ xs: 12, md: 9 }}>
+      </Grid>
+      <Grid size={{ xs: 12, md: 9 }}>
         <Box
           display="flex"
           justifyContent="center"
@@ -118,8 +118,8 @@ export const MovieView: FC<Props> = ({ data, backToList }) => (
             )}
           </Stack>
         </Box>
-      </Grid2>
-    </Grid2>
+      </Grid>
+    </Grid>
 
     <Stack>
       {!!data.homepage && (

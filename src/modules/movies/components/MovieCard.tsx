@@ -4,7 +4,7 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
-  Grid2,
+  Grid,
   Tooltip,
   Typography
 } from "@mui/material";
@@ -22,7 +22,7 @@ export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
   const { search } = useLocation();
 
   return (
-    <Grid2 size={{ xs: 6, md: 3 }}>
+    <Grid size={{ xs: 6, md: 3 }}>
       <Card
         sx={{
           transition: "transform 0.4s ease",
@@ -44,6 +44,6 @@ export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
           </CardContent>
         </CardActionArea>
       </Card>
-    </Grid2>
+    </Grid>
   );
 };

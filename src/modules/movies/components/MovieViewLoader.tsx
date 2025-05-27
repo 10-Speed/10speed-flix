@@ -1,4 +1,4 @@
-import { Box, Button, Grid2, Skeleton, Stack } from "@mui/material";
+import { Box, Button, Grid, Skeleton, Stack } from "@mui/material";
 import { FC } from "react";
 
 interface Props {
@@ -9,8 +9,8 @@ export const MovieViewLoader: FC<Props> = ({ backToList }) => (
   <Stack gap={5}>
     <Button onClick={backToList}>Back to movie list</Button>
 
-    <Grid2 container spacing={5}>
-      <Grid2 size={{ xs: 12, md: 3 }}>
+    <Grid container spacing={5}>
+      <Grid size={{ xs: 12, md: 3 }}>
         <Skeleton
           sx={{
             width: {
@@ -28,8 +28,8 @@ export const MovieViewLoader: FC<Props> = ({ backToList }) => (
           }}
           variant="rounded"
         />
-      </Grid2>
-      <Grid2 size={{ xs: 12, md: 9 }}>
+      </Grid>
+      <Grid size={{ xs: 12, md: 9 }}>
         <Box
           display="flex"
           justifyContent="center"
@@ -49,8 +49,8 @@ export const MovieViewLoader: FC<Props> = ({ backToList }) => (
             <Skeleton width="50%" height={12} variant="rounded" />
           </Stack>
         </Box>
-      </Grid2>
-    </Grid2>
+      </Grid>
+    </Grid>
 
     <Stack gap={1}>
       <Skeleton width="100%" height={50} variant="rounded" />
