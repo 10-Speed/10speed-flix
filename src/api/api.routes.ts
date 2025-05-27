@@ -1,5 +1,10 @@
 import { API } from "./api.config";
-import { MovieListResponse, MovieResponse } from "./api.types";
+import {
+  GenresResponse,
+  MovieListResponse,
+  MovieResponse,
+  TvListResponse
+} from "./api.types";
 
 export const apiRoutes = {
   /**
@@ -16,5 +21,27 @@ export const apiRoutes = {
    * More details about this endpoint can be found here:
    * @see https://developers.themoviedb.org/3/movies/get-movie-details
    */
-  getMovie: (movieId: string) => API.get<MovieResponse>(`/movie/${movieId}`)
+  getPopularTVShows: (page: number = 1) =>
+    API.get<TvListResponse>("/tv/popular", {
+      params: {
+        page
+      }
+    }),
+  getMovie: (movieId: string) => API.get<MovieResponse>(`/movie/${movieId}`),
+  getMovieGenres: () => API.get<GenresResponse>("genre/movie/list"),
+  getTVShowGenres: () => API.get<GenresResponse>("genre/tv/list"),
+  getFilteredMovies: (page: number = 1, genres: string) =>
+    API.get<MovieListResponse>("discover/movie", {
+      params: {
+        with_genres: genres,
+        page
+      }
+    }),
+  getFilteredTVShows: (page: number = 1, genres: string) =>
+    API.get<TvListResponse>("discover/tv", {
+      params: {
+        with_genres: genres,
+        page
+      }
+    })
 };

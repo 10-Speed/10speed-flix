@@ -3,7 +3,7 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  CardMedia,
+  CardMedia, Chip,
   Grid2,
   Tooltip,
   Typography
@@ -15,9 +15,10 @@ interface Props {
   title?: string;
   image?: string;
   movieId: string;
+  isTvShow?: boolean;
 }
 
-export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
+export const MovieCard: FC<Props> = ({ title, image, movieId, isTvShow }) => {
   const navigate = useNavigate();
   const { search } = useLocation();
 
@@ -25,6 +26,7 @@ export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
     <Grid2 size={{ xs: 6, md: 3 }}>
       <Card
         sx={{
+          position: "relative",
           transition: "transform 0.4s ease",
           ":hover": {
             transform: "translateY(-5px)"
@@ -34,6 +36,8 @@ export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
         <CardActionArea
           onClick={() => navigate(routes.movie(`${movieId}${search}`))}
         >
+          {isTvShow ?  <Chip sx={{position: "absolute", top: "5px", left: "5px"}} label="TV Show" color="primary" /> : null}
+
           <CardMedia component="img" height="380" image={image} alt={title} />
           <CardContent sx={{ height: "4rem" }}>
             <Tooltip title={title}>

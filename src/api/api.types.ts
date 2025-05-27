@@ -14,10 +14,33 @@ export interface MovieListItemResponse {
   vote_average: number;
   vote_count: number;
 }
+interface TVShowResponse {
+  adult: boolean;
+  backdrop_path: string | null;
+  genre_ids: number[];
+  id: number;
+  origin_country: string[];
+  original_language: string;
+  original_name: string;
+  overview: string;
+  popularity: number;
+  poster_path: string | null;
+  first_air_date: string; // Format: YYYY-MM-DD
+  name: string;
+  vote_average: number;
+  vote_count: number;
+}
 
 export interface MovieListResponse {
   page: number;
   results: MovieListItemResponse[];
+  total_pages: number;
+  total_results: number;
+}
+
+export interface TvListResponse {
+  page: number;
+  results: TVShowResponse[];
   total_pages: number;
   total_results: number;
 }
@@ -48,4 +71,14 @@ export interface MovieResponse extends MovieListItemResponse {
   }[];
   status: string;
   tagline: string;
+}
+
+export interface GenresResponse  {
+  genres: MovieGenre[];
+}
+
+export interface MovieGenre {
+  id: number;
+  name: string;
+  isTvGenre?: boolean;
 }
