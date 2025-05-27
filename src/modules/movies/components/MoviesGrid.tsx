@@ -1,6 +1,6 @@
 import { parseImagePath } from "@/api/api.config";
 import { MovieCard } from "@/modules/movies/components/MovieCard";
-import { Grid2, Pagination, Stack } from "@mui/material";
+import { Grid, Pagination, Stack } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useGetPopularMovies } from "../movies.queries";
@@ -32,9 +32,9 @@ export const MoviesGrid: FC = () => {
 
   return (
     <Stack spacing={5}>
-      <Grid2 container columns={{ xs: 12 }} spacing={5}>
+      <Grid container columns={{ xs: 12 }} spacing={5}>
         {isFetching ? loader : movies}
-      </Grid2>
+      </Grid>
       <Stack alignItems="center" justifyContent="center">
         <Pagination
           onChange={(_, num) => setPage(num)}
