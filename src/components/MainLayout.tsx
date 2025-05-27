@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import { FC } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 
 export const MainLayout: FC = () => (
   <Container

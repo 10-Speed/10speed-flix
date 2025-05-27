@@ -2,7 +2,7 @@ import { parseImagePath } from "@/api/api.config";
 import { MovieCard } from "@/modules/movies/components/MovieCard";
 import { Grid, Pagination, Stack } from "@mui/material";
 import { FC, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router";
 import { useGetPopularMovies } from "../movies.queries";
 import { MovieCardLoader } from "./MovieCardLoader";
 

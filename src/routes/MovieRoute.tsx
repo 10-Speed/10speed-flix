@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router";
 
 import { MovieView } from "@/modules/movies/components/MovieView";
 import { MovieViewError } from "@/modules/movies/components/MovieViewError";

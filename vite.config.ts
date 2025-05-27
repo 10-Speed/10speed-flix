@@ -12,5 +12,19 @@ export default defineConfig({
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url))
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom"],
+          emotion: ["@emotion/react", "@emotion/styled"],
+          "react-router": ["react-router"],
+          mui: ["@mui/material", "@mui/icons-material"],
+          "react-icons": ["react-icons"],
+          "react-query": ["@tanstack/react-query"]
+        }
+      }
+    }
   }
 });

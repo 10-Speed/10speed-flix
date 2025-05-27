@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Route } from "react-router-dom";
+import { Route } from "react-router";
 
 import { MainLayout } from "@/components/MainLayout";
 import { RouterProvider } from "@/providers/RouterProvider";

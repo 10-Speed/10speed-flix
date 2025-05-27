@@ -9,7 +9,7 @@ import {
   Typography
 } from "@mui/material";
 import { FC } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router";
 
 interface Props {
   title?: string;
